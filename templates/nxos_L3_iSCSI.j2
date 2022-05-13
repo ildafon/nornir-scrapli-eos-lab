@@ -1,0 +1,23 @@
+ip access-list BML_PERMIT_ISCSI_IN
+  10 permit ip any 169.254.40.0/23
+ip access-list BML_PERMIT_ISCSI_OUT
+  10 permit ip 169.254.40.0/23 any
+
+
+{% for interface in host["interfaces"].values()  %}
+
+interface Ethernet1/{{ interface["name"] }}
+  no switchport
+  mtu 9216
+  speed 25000
+  duplex full
+  fec rs-ieee
+  logging event port link-status
+  ip access-group BML_PERMIT_ISCSI_IN in
+  ip access-group BML_PERMIT_ISCSI_OUT out
+  no ip redirects
+  ip address {{ interface["ipv4"] }}/30
+  no ipv6 redirects
+  no shutdown
+!
+{% endfor %}

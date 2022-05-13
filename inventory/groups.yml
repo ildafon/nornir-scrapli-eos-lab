@@ -1,7 +1,11 @@
 ---
-global:
-  data:
-    asn: 65001
+nxos:
+  connection_options:
+    scrapli:
+      platform: cisco_nxos
+      extras:
+        # ssh_config_file: True
+        auth_strict_key: False
 
 eos:
   # port: 6030
@@ -13,12 +17,3 @@ eos:
         # ssh_config_file: True
         auth_strict_key: False
 
-spine:
-  data:
-    portcount_10G: 24
-    portcount_100G: 4
-
-leaf:
-  data:
-    portcount_10G: 24
-    portcount_100G: 4

@@ -4,3 +4,4 @@ nornir-scrapli
 nornir-utils
 pybatfish
 rich
+python-dotenv

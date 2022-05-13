@@ -1,0 +1,413 @@
+2022-05-12 18:13:52,031 -  nornir.core -     INFO -        run() - Running task 'backup_cfg' with args {} on 1 hosts
+2022-05-12 18:13:52,345 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'Get running config from each host' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir_scrapli/connection.py", line 145, in get_connection
+    connection = task.host.get_connection("scrapli_cfg", task.nornir.config)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/inventory.py", line 502, in get_connection
+    extras=conn.extras,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/inventory.py", line 553, in open_connection
+    configuration=configuration,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir_scrapli/connection.py", line 206, in open
+    self.connection.prepare()
+AttributeError: 'ScrapliConfig' object has no attribute 'connection'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir_scrapli/tasks/cfg/get_config.py", line 22, in cfg_get_config
+    scrapli_cfg_conn = ScrapliConfig.get_connection(task=task)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir_scrapli/connection.py", line 147, in get_connection
+    task.host.connections["scrapli_cfg"] = ScrapliConfig.spawn(task=task)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir_scrapli/connection.py", line 171, in spawn
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/inventory.py", line 502, in get_connection
+    extras=conn.extras,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/inventory.py", line 553, in open_connection
+    configuration=configuration,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/driver/base/sync_driver.py", line 88, in open
+    auth_private_key_passphrase=self.auth_private_key_passphrase,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 279, in decorate
+    kwargs=kwargs,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib64/python3.6/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/lib64/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/lib64/python3.6/concurrent/futures/thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/channel/sync_channel.py", line 291, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/channel/base_channel.py", line 280, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed
+
+2022-05-12 18:13:52,346 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'backup_cfg' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "backup_config.py", line 13, in backup_cfg
+    name="Get running config from each host")
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Get running config from each host (failed)
+
+
+2022-05-12 18:14:32,787 -  nornir.core -     INFO -        run() - Running task 'backup_cfg' with args {} on 1 hosts
+2022-05-12 18:14:33,423 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'Get running config from each host' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/transport/plugins/system/ptyprocess.py", line 427, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/transport/plugins/system/transport.py", line 126, in read
+    buf = self.session.read(65535)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/transport/plugins/system/ptyprocess.py", line 432, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir_scrapli/tasks/cfg/get_config.py", line 22, in cfg_get_config
+    scrapli_cfg_conn = ScrapliConfig.get_connection(task=task)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir_scrapli/connection.py", line 147, in get_connection
+    task.host.connections["scrapli_cfg"] = ScrapliConfig.spawn(task=task)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir_scrapli/connection.py", line 171, in spawn
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/inventory.py", line 502, in get_connection
+    extras=conn.extras,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/inventory.py", line 553, in open_connection
+    configuration=configuration,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/driver/base/sync_driver.py", line 88, in open
+    auth_private_key_passphrase=self.auth_private_key_passphrase,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 279, in decorate
+    kwargs=kwargs,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib64/python3.6/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/lib64/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/lib64/python3.6/concurrent/futures/thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/channel/sync_channel.py", line 288, in channel_authenticate_ssh
+    buf = self.read()
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/channel/sync_channel.py", line 69, in read
+    buf = self.transport.read()
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 98, in decorate
+    kwargs=kwargs,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 173, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib64/python3.6/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/lib64/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/lib64/python3.6/concurrent/futures/thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/transport/plugins/system/transport.py", line 133, in read
+    raise ScrapliConnectionError(msg) from exc
+scrapli.exceptions.ScrapliConnectionError: encountered EOF reading from transport; typically means the device closed the connection
+
+2022-05-12 18:14:33,423 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'backup_cfg' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "backup_config.py", line 13, in backup_cfg
+    name="Get running config from each host")
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Get running config from each host (failed)
+
+
+2022-05-12 18:15:00,265 -  nornir.core -     INFO -        run() - Running task 'backup_cfg' with args {} on 1 hosts
+2022-05-12 18:15:00,902 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'Get running config from each host' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/transport/plugins/system/ptyprocess.py", line 427, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/transport/plugins/system/transport.py", line 126, in read
+    buf = self.session.read(65535)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/transport/plugins/system/ptyprocess.py", line 432, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir_scrapli/tasks/cfg/get_config.py", line 22, in cfg_get_config
+    scrapli_cfg_conn = ScrapliConfig.get_connection(task=task)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir_scrapli/connection.py", line 147, in get_connection
+    task.host.connections["scrapli_cfg"] = ScrapliConfig.spawn(task=task)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir_scrapli/connection.py", line 171, in spawn
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/inventory.py", line 502, in get_connection
+    extras=conn.extras,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/inventory.py", line 553, in open_connection
+    configuration=configuration,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/driver/base/sync_driver.py", line 88, in open
+    auth_private_key_passphrase=self.auth_private_key_passphrase,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 279, in decorate
+    kwargs=kwargs,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib64/python3.6/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/lib64/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/lib64/python3.6/concurrent/futures/thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/channel/sync_channel.py", line 288, in channel_authenticate_ssh
+    buf = self.read()
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/channel/sync_channel.py", line 69, in read
+    buf = self.transport.read()
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 98, in decorate
+    kwargs=kwargs,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 173, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib64/python3.6/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/lib64/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/lib64/python3.6/concurrent/futures/thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/transport/plugins/system/transport.py", line 133, in read
+    raise ScrapliConnectionError(msg) from exc
+scrapli.exceptions.ScrapliConnectionError: encountered EOF reading from transport; typically means the device closed the connection
+
+2022-05-12 18:15:00,902 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'backup_cfg' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "backup_config.py", line 13, in backup_cfg
+    name="Get running config from each host")
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Get running config from each host (failed)
+
+
+2022-05-12 18:24:02,209 -  nornir.core -     INFO -        run() - Running task 'backup_cfg' with args {} on 1 hosts
+2022-05-12 18:27:11,487 -  nornir.core -     INFO -        run() - Running task 'deploy_int' with args {} on 1 hosts
+2022-05-12 18:27:16,363 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'deploy_int' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/deploy_nxos_L3_iSCSI.py", line 17, in deploy_int
+    config=task.host["config"])
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Configuring interfaces! (failed)
+
+
+2022-05-12 18:28:20,221 -  nornir.core -     INFO -        run() - Running task 'deploy_int' with args {} on 1 hosts
+2022-05-12 18:29:01,699 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'deploy_int' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/deploy_nxos_L3_iSCSI.py", line 17, in deploy_int
+    config=task.host["config"])
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Configuring interfaces! (failed)
+
+
+2022-05-12 18:30:20,563 -  nornir.core -     INFO -        run() - Running task 'deploy_int' with args {} on 1 hosts
+2022-05-12 18:31:01,640 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'deploy_int' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/deploy_nxos_L3_iSCSI.py", line 17, in deploy_int
+    config=task.host["config"])
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Configuring interfaces! (failed)
+
+
+2022-05-12 18:32:11,239 -  nornir.core -     INFO -        run() - Running task 'deploy_int' with args {} on 1 hosts
+2022-05-12 18:34:28,985 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'deploy_int' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/deploy_nxos_L3_iSCSI.py", line 21, in deploy_int
+    commands=["show run", "write memory"])
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Show new config and copy running config to startup config. (failed)
+
+
+2022-05-12 21:50:57,331 -  nornir.core -     INFO -        run() - Running task 'update_cfg' with args {} on 1 hosts
+2022-05-12 21:51:33,030 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'Update config configuration on the device.' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir_scrapli/tasks/core/send_configs_from_file.py", line 75, in send_configs_from_file
+    timeout_ops=timeout_ops,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/driver/network/sync_driver.py", line 628, in send_configs_from_file
+    timeout_ops=timeout_ops,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/driver/network/sync_driver.py", line 513, in send_configs
+    timeout_ops=timeout_ops,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/driver/generic/sync_driver.py", line 213, in send_commands
+    eager=eager,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 409, in decorate
+    result = wrapped_func(*args, **kwargs)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/driver/generic/sync_driver.py", line 132, in _send_command
+    channel_input=command, strip_prompt=strip_prompt, eager=eager
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 279, in decorate
+    kwargs=kwargs,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 336, in _multiprocessing_timeout
+    self._handle_timeout()
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 312, in _handle_timeout
+    raise ScrapliTimeout(self.message)
+scrapli.exceptions.ScrapliTimeout: timed out sending input to device
+
+2022-05-12 21:51:33,030 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'update_cfg' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/restore_config.py", line 21, in update_cfg
+    file=f"./snapshots/configs/{task.host}.cfg")
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Update config configuration on the device. (failed)
+
+
+2022-05-12 21:54:28,965 -  nornir.core -     INFO -        run() - Running task 'update_cfg' with args {} on 1 hosts
+2022-05-12 21:55:04,685 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'Update config configuration on the device.' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir_scrapli/tasks/core/send_configs_from_file.py", line 75, in send_configs_from_file
+    timeout_ops=timeout_ops,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/driver/network/sync_driver.py", line 628, in send_configs_from_file
+    timeout_ops=timeout_ops,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/driver/network/sync_driver.py", line 513, in send_configs
+    timeout_ops=timeout_ops,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/driver/generic/sync_driver.py", line 213, in send_commands
+    eager=eager,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 409, in decorate
+    result = wrapped_func(*args, **kwargs)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/driver/generic/sync_driver.py", line 132, in _send_command
+    channel_input=command, strip_prompt=strip_prompt, eager=eager
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 279, in decorate
+    kwargs=kwargs,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 336, in _multiprocessing_timeout
+    self._handle_timeout()
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 312, in _handle_timeout
+    raise ScrapliTimeout(self.message)
+scrapli.exceptions.ScrapliTimeout: timed out sending input to device
+
+2022-05-12 21:55:04,686 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'update_cfg' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/restore_config.py", line 21, in update_cfg
+    file=f"./snapshots/configs/{task.host}.cfg")
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Update config configuration on the device. (failed)
+
+
+2022-05-12 21:56:17,320 -  nornir.core -     INFO -        run() - Running task 'update_cfg' with args {} on 1 hosts
+2022-05-12 21:56:53,114 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'Update config configuration on the device.' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir_scrapli/tasks/core/send_configs_from_file.py", line 75, in send_configs_from_file
+    timeout_ops=timeout_ops,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/driver/network/sync_driver.py", line 628, in send_configs_from_file
+    timeout_ops=timeout_ops,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/driver/network/sync_driver.py", line 513, in send_configs
+    timeout_ops=timeout_ops,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/driver/generic/sync_driver.py", line 213, in send_commands
+    eager=eager,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 409, in decorate
+    result = wrapped_func(*args, **kwargs)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/driver/generic/sync_driver.py", line 132, in _send_command
+    channel_input=command, strip_prompt=strip_prompt, eager=eager
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 279, in decorate
+    kwargs=kwargs,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 336, in _multiprocessing_timeout
+    self._handle_timeout()
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 312, in _handle_timeout
+    raise ScrapliTimeout(self.message)
+scrapli.exceptions.ScrapliTimeout: timed out sending input to device
+
+2022-05-12 21:56:53,115 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'update_cfg' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/restore_config.py", line 21, in update_cfg
+    file=f"./snapshots/configs/{task.host}.cfg")
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Update config configuration on the device. (failed)
+
+
+2022-05-12 21:57:36,155 -  nornir.core -     INFO -        run() - Running task 'update_cfg' with args {} on 1 hosts
+2022-05-12 21:58:33,376 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'Update config configuration on the device.' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir_scrapli/tasks/core/send_configs_from_file.py", line 75, in send_configs_from_file
+    timeout_ops=timeout_ops,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/driver/network/sync_driver.py", line 628, in send_configs_from_file
+    timeout_ops=timeout_ops,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/driver/network/sync_driver.py", line 513, in send_configs
+    timeout_ops=timeout_ops,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/driver/generic/sync_driver.py", line 213, in send_commands
+    eager=eager,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 409, in decorate
+    result = wrapped_func(*args, **kwargs)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/driver/generic/sync_driver.py", line 132, in _send_command
+    channel_input=command, strip_prompt=strip_prompt, eager=eager
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 279, in decorate
+    kwargs=kwargs,
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 336, in _multiprocessing_timeout
+    self._handle_timeout()
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/scrapli/decorators.py", line 312, in _handle_timeout
+    raise ScrapliTimeout(self.message)
+scrapli.exceptions.ScrapliTimeout: timed out sending input to device
+
+2022-05-12 21:58:33,377 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'update_cfg' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/restore_config.py", line 21, in update_cfg
+    file=f"./snapshots/configs/{task.host}.cfg")
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Update config configuration on the device. (failed)
+
+
+2022-05-12 22:01:24,589 -  nornir.core -     INFO -        run() - Running task 'deploy_int' with args {} on 1 hosts
+2022-05-12 22:02:12,371 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'deploy_int' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/deploy_nxos_L3_iSCSI.py", line 21, in deploy_int
+    commands=["show run", "write memory"])
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Show new config and copy running config to startup config. (failed)
+
+
+2022-05-12 22:15:04,084 -  nornir.core -     INFO -        run() - Running task 'backup_cfg' with args {} on 2 hosts
