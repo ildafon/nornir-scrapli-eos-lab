@@ -411,3 +411,100 @@ nornir.core.exceptions.NornirSubTaskError: Subtask: Show new config and copy run
 
 
 2022-05-12 22:15:04,084 -  nornir.core -     INFO -        run() - Running task 'backup_cfg' with args {} on 2 hosts
+2022-05-13 09:29:06,396 -  nornir.core -     INFO -        run() - Running task 'backup_cfg' with args {} on 1 hosts
+2022-05-13 09:29:54,370 -  nornir.core -     INFO -        run() - Running task 'deploy_int' with args {} on 1 hosts
+2022-05-13 09:29:56,244 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'deploy_int' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/deploy_nxos_L3_iSCSI.py", line 21, in deploy_int
+    commands=["show run", "write memory"])
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Show new config and copy running config to startup config. (failed)
+
+
+2022-05-13 09:31:10,269 -  nornir.core -     INFO -        run() - Running task 'deploy_int' with args {} on 1 hosts
+2022-05-13 09:31:13,842 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'deploy_int' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/deploy_nxos_L3_iSCSI.py", line 21, in deploy_int
+    commands=["show run", "write memory"])
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Show new config and copy running config to startup config. (failed)
+
+
+2022-05-13 09:38:39,903 -  nornir.core -     INFO -        run() - Running task 'backup_cfg' with args {} on 2 hosts
+2022-05-13 09:39:16,745 -  nornir.core -     INFO -        run() - Running task 'deploy_int' with args {} on 2 hosts
+2022-05-13 09:40:02,483 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-022': task 'deploy_int' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/deploy_nxos_L3_iSCSI.py", line 21, in deploy_int
+    commands=["show run", "write memory"])
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Show new config and copy running config to startup config. (failed)
+
+
+2022-05-13 09:40:03,324 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'deploy_int' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/deploy_nxos_L3_iSCSI.py", line 21, in deploy_int
+    commands=["show run", "write memory"])
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Show new config and copy running config to startup config. (failed)
+
+
+2022-05-13 09:56:52,000 -  nornir.core -     INFO -        run() - Running task 'get_run' with args {} on 2 hosts
+2022-05-13 09:56:53,782 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-022': task 'get_run' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/get_run_config_and_write.py", line 12, in get_run
+    commands=["show run", "write memory"])
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Show new config and copy running config to startup config. (failed)
+
+
+2022-05-13 09:56:53,862 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'get_run' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/get_run_config_and_write.py", line 12, in get_run
+    commands=["show run", "write memory"])
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Show new config and copy running config to startup config. (failed)
+
+
+2022-05-13 09:57:49,121 -  nornir.core -     INFO -        run() - Running task 'get_run' with args {} on 2 hosts
+2022-05-13 09:57:50,895 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-021': task 'get_run' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/get_run_config_and_write.py", line 12, in get_run
+    commands=["show run", "write memory"])
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Show new config and copy running config to startup config. (failed)
+
+
+2022-05-13 09:57:50,966 - nornir.core.task -    ERROR -      start() - Host 'pd01-ilf-022': task 'get_run' failed with traceback:
+Traceback (most recent call last):
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/get_run_config_and_write.py", line 12, in get_run
+    commands=["show run", "write memory"])
+  File "/home/irgaraev/projects/nornir-scrapli-eos-lab/venv/lib64/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Show new config and copy running config to startup config. (failed)
+
+
+2022-05-13 09:58:49,408 -  nornir.core -     INFO -        run() - Running task 'get_run' with args {} on 2 hosts
+2022-05-13 09:59:00,850 -  nornir.core -     INFO -        run() - Running task 'get_run' with args {} on 2 hosts

@@ -22,7 +22,7 @@ def update_cfg(task: Task) -> Result:
 
     task.run(task=send_commands, 
             name="Show new config and copy running config to startup config.", 
-            commands=["show run", "write memory"])
+            commands=["show run", "wrmem"])
 
 if __name__ == "__main__":
     nr = InitNornir(config_file="config.yml", core={"raise_on_error": True})

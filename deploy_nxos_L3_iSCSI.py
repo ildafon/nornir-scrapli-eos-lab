@@ -13,12 +13,12 @@ def deploy_int(task: Task) -> Result:
 
     task.run(task=send_config, 
             name="Configuring interfaces!", 
-            dry_run=True,
+            dry_run=False,
             config=task.host["config"])
     
     task.run(task=send_commands, 
             name="Show new config and copy running config to startup config.", 
-            commands=["show run", "write memory"])
+            commands=["show run", "wrmem"])
 
 
 if __name__ == "__main__":
