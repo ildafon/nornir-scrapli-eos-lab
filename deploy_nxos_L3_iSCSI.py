@@ -13,7 +13,7 @@ def deploy_int(task: Task) -> Result:
 
     task.run(task=send_config, 
             name="Configuring interfaces!", 
-            dry_run=False,
+            dry_run=True,
             config=task.host["config"])
     
     task.run(task=send_commands, 
